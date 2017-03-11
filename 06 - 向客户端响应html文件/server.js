@@ -2,17 +2,19 @@ const http = require('http');
 const fs = require('fs');
 
 const server = http.createServer((request, response) => {
-  const fileName = '/' + request.url;
-  console.log(fileName);
 
-  fs.readFile(fileName, (error, data) => {
-    if(error) {
-      throw new Error('cannot read this file');
+  // 设置 HTTP 响应头(Header)，标识这个文件类型是 html 文件
+  response.setHeader("Content-Type", "text/html");
+
+  // 读取文件
+  fs.readFile('index.html', (err, data) => {
+    if(err) {
+      console.log(err);
     } else {
       response.write(data);
     }
 
-    // 因此什么时候读取完文件，什么时候再关闭服务器
+    // 文件写入后，关闭服务器
     response.end();
   });
 
@@ -22,4 +24,4 @@ const server = http.createServer((request, response) => {
   // response.end();
 });
 
-server.listen(6060);
+server.listen(8888);
