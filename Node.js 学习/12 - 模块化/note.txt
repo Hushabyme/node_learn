@@ -1,0 +1,13 @@
+require：导入模块
+exports：输出
+module：模块
+
+npm：Node.js Packages Manager
+
+如何创建并上传自己的 npm 包
+1. 先在 npm 官网注册账号
+2. 在本地使用 "npm login" 命令登录
+3. 创建文件夹
+4. 使用 "npm init" 初始化 npm 包
+5. 然后将写好的代码保存好，使用 "npm publish" 上传
+6. 下载可以使用 "npm install"
